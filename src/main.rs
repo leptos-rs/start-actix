@@ -16,7 +16,7 @@ async fn main() -> std::io::Result<()> {
         // Generate the list of routes in your Leptos App
         let routes = generate_route_list(App);
         let leptos_options = &conf.leptos_options;
-        let site_root = &leptos_options.site_root;
+        let site_root = leptos_options.site_root.clone().to_string();
 
         println!("listening on http://{}", &addr);
 
@@ -24,7 +24,7 @@ async fn main() -> std::io::Result<()> {
             // serve JS/WASM/CSS from `pkg`
             .service(Files::new("/pkg", format!("{site_root}/pkg")))
             // serve other assets from the `assets` directory
-            .service(Files::new("/assets", site_root))
+            .service(Files::new("/assets", &site_root))
             // serve the favicon from /favicon.ico
             .service(favicon)
             .leptos_routes(routes, {
