@@ -15,7 +15,7 @@ If you don't have `cargo-leptos` installed you can install it with
 
 Then run
 
-`cargo leptos new --git leptos-rs/start-actix`
+`cargo leptos new --git https://github.com/leptos-rs/start-actix`
 
 to generate a new project template (you will be prompted to enter a project name).
 
